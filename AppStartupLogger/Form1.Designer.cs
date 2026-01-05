@@ -32,8 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             notifyIcon1 = new NotifyIcon(components);
             contextMenuStrip1 = new ContextMenuStrip(components);
+            設定 = new ToolStripMenuItem();
+            終了 = new ToolStripMenuItem();
             cartesianChart1 = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
             titleLabel = new Label();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // notifyIcon1
@@ -43,14 +46,32 @@
             notifyIcon1.Text = "アプリ起動時間記録中";
             notifyIcon1.Visible = true;
             notifyIcon1.DoubleClick += notifyIcon1_DoubleClick;
-            notifyIcon1.MouseDoubleClick += notifyIcon1_MouseDoubleClick;
             // 
             // contextMenuStrip1
             // 
             contextMenuStrip1.BackColor = Color.FromArgb(45, 45, 48);
             contextMenuStrip1.ForeColor = Color.White;
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { 設定, 終了 });
             contextMenuStrip1.Name = "メニュー";
-            contextMenuStrip1.Size = new Size(61, 4);
+            contextMenuStrip1.Size = new Size(99, 48);
+            // 
+            // 設定
+            // 
+            設定.BackColor = Color.FromArgb(45, 45, 48);
+            設定.ForeColor = Color.White;
+            設定.Name = "設定";
+            設定.Size = new Size(98, 22);
+            設定.Text = "設定";
+            設定.Click += 設定ToolStripMenuItem_Click;
+            // 
+            // 終了
+            // 
+            終了.BackColor = Color.FromArgb(45, 45, 48);
+            終了.ForeColor = Color.White;
+            終了.Name = "終了";
+            終了.Size = new Size(98, 22);
+            終了.Text = "終了";
+            終了.Click += 終了ToolStripMenuItem_Click;
             // 
             // cartesianChart1
             // 
@@ -86,6 +107,7 @@
             Text = "アプリ起動時間記録";
             FormClosing += Form1_FormClosing;
             Shown += Form1_Shown;
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -94,6 +116,8 @@
 
         private NotifyIcon notifyIcon1;
         private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem 設定;
+        private ToolStripMenuItem 終了;
         private LiveChartsCore.SkiaSharpView.WinForms.CartesianChart cartesianChart1;
         private Label titleLabel;
     }

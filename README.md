@@ -11,4 +11,4 @@ WinFormsアプリです。
 ## 開発環境
 - C#
 - .NET 10
-- Visual Studio 2022
+- Visual Studio 2026
